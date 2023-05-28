@@ -1,0 +1,18 @@
+# time=o(n) space = o(n)
+def sortedSquaredArray(array):
+    # Write your code here.
+    sortedSquares = [0 for _ in array]
+    smallIdx =0
+    largeIdx = len(array) -1
+
+    for i in reversed(range(len(array))):
+        smallVal = array[smallIdx]
+        largeVal = array[largeIdx]
+
+        if abs(smallVal) > abs(largeVal):
+            sortedSquares[i] = smallVal * smallVal
+            smallIdx +=1
+        else:
+            sortedSquares[i] = largeVal * largeVal
+            largeIdx -=1
+    return sortedSquares
