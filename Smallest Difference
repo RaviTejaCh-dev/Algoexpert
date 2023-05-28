@@ -1,0 +1,32 @@
+import java.util.*;
+
+class Program {
+  public static int[] smallestDifference(int[] arrayOne, int[] arrayTwo) {
+    Arrays.sort(arrayOne);
+		Arrays.sort(arrayTwo);
+		int idxOne=0;
+		int idxTwo=0;
+		int smallest = Integer.MAX_VALUE;
+		int current =Integer.MAX_VALUE;
+		int[] smallestpair = new int[2];
+		while(idxOne < arrayOne.length && idxTwo < arrayTwo.length){
+			int firstnum = arrayOne[idxOne];
+			int secondnum = arrayTwo[idxTwo];
+			if(firstnum < secondnum){
+				current = secondnum - firstnum;
+				idxOne++;
+			}
+			else if (firstnum > secondnum){
+				current = firstnum - secondnum;
+				idxTwo++;
+			}
+			else
+				return new int[] {firstnum,secondnum};
+			if(smallest > current){
+				smallest = current;
+				smallestpair = new int[] {firstnum,secondnum};
+			}
+		}
+    return smallestpair;
+  }
+}
