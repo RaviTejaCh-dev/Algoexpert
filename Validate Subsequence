@@ -1,0 +1,10 @@
+# time = o(n) space = 0(1)
+def isValidSubsequence(array, sequence):
+    # Write your code here.
+    arrayIdx = 0
+    sequenceIdx = 0
+    while arrayIdx < len(array) and sequenceIdx < len(sequence):
+        if array[arrayIdx] == sequence[sequenceIdx]:
+            sequenceIdx +=1
+        arrayIdx +=1
+    return sequenceIdx == len(sequence)
